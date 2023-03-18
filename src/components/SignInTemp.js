@@ -1,4 +1,5 @@
 import React, { Children } from 'react';
+import '../css/index.css';
 
 const SignInTemp = ({button, input, title, clicked, Children}) => {
   return (
