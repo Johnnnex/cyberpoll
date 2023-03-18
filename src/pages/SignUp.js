@@ -36,7 +36,7 @@ const SignUp = () => {
     <div>
         <SignInTemp button="Sign Up" title="Sign Up" smallText="Already have an account?" link="sign in" referemce="/signin">
             <input type="text" id="nin" autoComplete="off" name="nin" onClick={() => clicked("nin")} onInput={() => input("nin")} placeholder="Enter Your NIN Number" required /><br /> 
-                <div class="error ninErr hidden"> 
+                <div className="error ninErr hidden"> 
                     <p id="letterErr">NIN cannot contain letters!</p>
                     <p id="isCompleteErr">NIN cannot be more or less than 11 digits!</p>
                     <p id="symbolNinErr">NIN cannot contain symbols</p>

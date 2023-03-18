@@ -2,6 +2,15 @@ import React from 'react';
 import '../css/index.css';
 
 const SignInTemp = ({button, title, children, smallText, reference, link}) => {
+    const toggleCarousel = () => {
+        const getCarouselElement = document.querySelector('.item-one');
+        const getHiddenElement = document.querySelector('.item-two');
+        const getParentElement = document.querySelector('.carousel-container');
+        getParentElement.classList.toggle('bgChange');
+        getCarouselElement.classList.toggle('hidden');
+        getHiddenElement.classList.toggle('hidden');
+    }
+    setInterval (toggleCarousel, 5000);
     const clicked = (variable) => {
         let errDOM = `.${variable}Err`;
         document.querySelector(errDOM).classList.remove('hidden');
@@ -30,24 +39,24 @@ const SignInTemp = ({button, title, children, smallText, reference, link}) => {
   return (
     <div>
         <main>
-            <div class="main-content carousel-container">
-                <span class="span left" onclick={toggleCarousel}><i class="fa-solid fa-arrow-left"></i></span>
-                <span class="span right" onclick={toggleCarousel}><i class="fa-solid fa-arrow-right"></i></span>
-                <div class="carousel item-one">
+            <div className="main-content carousel-container">
+                <span className="span left" onClick={toggleCarousel}><i className="fa-solid fa-arrow-left"></i></span>
+                <span className="span right" onClick={toggleCarousel}><i className="fa-solid fa-arrow-right"></i></span>
+                <div className="carousel item-one">
                     <h2>"The vote is the most powerful instrument ever devised by man for breaking down injustice and destroying the terrible walls which imprison men because they are different from other men."</h2>
-                    <p class="author">- Lyndon B. Johnson</p>
+                    <p className="author">- Lyndon B. Johnson</p>
                 </div>
-                <div class="carousel item-two hidden">
+                <div className="carousel item-two hidden">
                     <h2>"The vote is a trust more delicate than any other, for it involves not just the interests of the voter, but the interests of others as well."</h2>
-                    <p class="author">- Samuel J. Tilden</p>
+                    <p className="author">- Samuel J. Tilden</p>
                 </div>
             </div>
-            <div class="main-content form">
+            <div className="main-content form">
                 
                 <form action="" id="form">
                     <h1>{title}</h1>
                     <input type="text" id="Uname" name="username" onClick={() => clicked("Uname")} onInput={() => input("Uname")} placeholder="Your Username" required /><br /> 
-                    <div class="error UnameErr hidden"> 
+                    <div className="error UnameErr hidden"> 
                             <p id="numberErr">Username cannot contain numbers!</p>
                             <p id="symbolErr">Username cannot contain symbols</p>
                     </div>
