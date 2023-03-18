@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
 import Index from './pages/Index';
+import SignUp from './pages/SignUp';
 
 function App() {
   return (
     <div className="App">
-      sjh
-      <Index />
+      {/* <Index /> */}
+      <SignUp />
     </div>
   );
 }

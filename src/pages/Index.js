@@ -4,7 +4,7 @@ import SignInTemp from '../components/SignInTemp';
 const Index = () => {
   return (
     <div>
-        <SignInTemp />
+        <SignInTemp button="Sign In" title="Sign In" smallText="Don't have an account yet?" link="sign up" referemce="/signup"/>
     </div>
   )
 }

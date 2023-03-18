@@ -24,7 +24,7 @@ main {
 .carousel-container {
     width: 60%;
     padding: 10rem 2rem 2rem 1.5rem;
-    background-image: url(../images/nigerianFlag.jpg);
+    background-image: url(/src/assets/images/nigerianFlag.jpg);
     background-position: center;
     background-size: cover;
     background-blend-mode: overlay;
@@ -35,7 +35,7 @@ main {
     transition: 1s;
 }
 .bgChange {
-    background-image: url(../images/nigeriansVoting.jpg);
+    background-image: url(/src/assets/images/nigeriansVoting.jpg);
     background-position: center;
     background-size: cover;
    
@@ -77,6 +77,9 @@ main {
     font-family: 'Poppins', sans-serif;
     overflow-y: auto;
     
+}
+form {
+    margin-top: 10%;
 }
 .form h1 {
     font-family: 'Caudex', serif;
@@ -135,6 +138,8 @@ button {
     font-family: 'Lato', sans-serif;
     margin-top: 1.5rem;
     margin-bottom: .5rem;
+    font-weight: bolder;
+    font-size: 1rem;
 }
 button::before {
     content: "";
@@ -163,7 +168,7 @@ a {
 }
 @media all and (max-width: 884px) {
     body {
-        background-image: url(../images/nigeriansVoting.jpg);
+        background-image: url(/src/assets/images/nigeriansVoting.jpg);
         background-attachment: fixed;
         background-position: center;
         background-size: cover;

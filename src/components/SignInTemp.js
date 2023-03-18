@@ -1,7 +1,32 @@
-import React, { Children } from 'react';
+import React from 'react';
 import '../css/index.css';
 
-const SignInTemp = ({button, input, title, clicked, Children}) => {
+const SignInTemp = ({button, title, children, smallText}) => {
+    const clicked = (variable) => {
+        let errDOM = `.${variable}Err`;
+        document.querySelector(errDOM).classList.remove('hidden');
+    }
+    
+    const input = (variable) => {
+        if (variable === "Uname") {
+            const vUname = document.querySelector("#Uname").value;
+            const numberErr = document.querySelector("#numberErr");
+            const symbolErr = document.querySelector("#symbolErr");
+            if (vUname.match(/[0-9]/)) {
+                numberErr.style.color = "#ff0000";
+            } else {
+                numberErr.style.color = "#00ff00";
+            }
+            // eslint-disable-next-line no-useless-escape
+            if (vUname.match(/[@\#\$\%\^\&\*\(\)\+\=\_\~\`\\\}\{\]\[\:\;\"\'\<\>\.\,\/\?\!\-]/)) {
+                symbolErr.style.color = "#ff0000";
+            } else {
+                symbolErr.style.color = "#00ff00";
+            }
+        }
+        
+    }
+    
   return (
     <div>
         <main>
@@ -18,16 +43,18 @@ const SignInTemp = ({button, input, title, clicked, Children}) => {
                 </div>
             </div>
             <div class="main-content form">
-                <h1>{title}</h1>
+                
                 <form action="" id="form">
-                <input type="text" id="Uname" name="username" onClick={() => clicked(this)} onInput={() => input(this)} placeholder="Your Username" required /><br /> 
-                <div class="error UnameErr hidden"> 
-                        <p id="numberErr">Username cannot contain numbers!</p>
-                        <p id="symbolErr">Username cannot contain symbols</p>
+                    <h1>{title}</h1>
+                    <input type="text" id="Uname" name="username" onClick={() => clicked("Uname")} onInput={() => input("Uname")} placeholder="Your Username" required /><br /> 
+                    <div class="error UnameErr hidden"> 
+                            <p id="numberErr">Username cannot contain numbers!</p>
+                            <p id="symbolErr">Username cannot contain symbols</p>
                     </div>
-                    {Children}
+                    {children}
                     <button type="submit" name="submit">{button}</button>
                 </form>
+                <small>{smallText} <a href={reference}>{}</a></small>
             </div>
         </main> 
     </div>
