@@ -1,7 +1,35 @@
 import React from 'react'
 import SignInTemp from '../components/SignInTemp'
+import supabase from '../config/supabaseClient'
+import { useEffect, useState } from 'react'
 
 const SignUp = () => {
+  const ninInput = document.querySelector("#nin").value;
+  const unameInput = document.querySelector("Uname");
+  const [fetchError, setFetchError] = useState(null);
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const { data, error } = await supabase
+        .from("UserData")
+        .select()
+
+        if (error) {
+          setFetchError("Couldn't Register, check your internet connection!")
+          console.log(error)
+          setUserData(null)
+        }
+        if (data) {
+          setUserData(data)
+          setFetchError(null)
+        }
+    }
+    fetchUserData()
+  }, [])
+
+ console.log(ninInput + unameInput)
+
   const clicked = (variable) => {
     let errDOM = `.${variable}Err`;
     document.querySelector(errDOM).classList.remove('hidden');

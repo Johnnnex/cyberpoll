@@ -1,5 +1,6 @@
 import React from 'react';
 import SignInTemp from '../components/SignInTemp';
+import supabase from '../config/supabaseClient';
 
 const Index = () => {
   return (
