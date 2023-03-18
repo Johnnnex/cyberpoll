@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/index.css';
 
-const SignInTemp = ({button, title, children, smallText}) => {
+const SignInTemp = ({button, title, children, smallText, reference, link}) => {
     const clicked = (variable) => {
         let errDOM = `.${variable}Err`;
         document.querySelector(errDOM).classList.remove('hidden');
@@ -54,7 +54,7 @@ const SignInTemp = ({button, title, children, smallText}) => {
                     {children}
                     <button type="submit" name="submit">{button}</button>
                 </form>
-                <small>{smallText} <a href={reference}>{}</a></small>
+                <small>{smallText} <a href={reference}>{link}</a></small>
             </div>
         </main> 
     </div>

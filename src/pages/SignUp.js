@@ -34,7 +34,7 @@ const SignUp = () => {
 
   return (
     <div>
-        <SignInTemp button="Sign Up" title="Sign Up">
+        <SignInTemp button="Sign Up" title="Sign Up" smallText="Already have an account?" link="sign in" referemce="/signin">
             <input type="text" id="nin" autoComplete="off" name="nin" onClick={() => clicked("nin")} onInput={() => input("nin")} placeholder="Enter Your NIN Number" required /><br /> 
                 <div class="error ninErr hidden"> 
                     <p id="letterErr">NIN cannot contain letters!</p>
