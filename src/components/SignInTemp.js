@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Children } from 'react';
 
-const SignInTemp = () => {
+const SignInTemp = ({button, input, title, clicked}) => {
   return (
     <div>
         <main>
@@ -17,20 +17,15 @@ const SignInTemp = () => {
                 </div>
             </div>
             <div class="main-content form">
-                <h1>Sign Up</h1>
+                <h1>{title}</h1>
                 <form action="" id="form">
-                <input type="text" id="Uname" name="username" onclick="clicked(this)" oninput="input(this)" placeholder="Your Username" required /><br /> 
+                <input type="text" id="Uname" name="username" onClick={() => clicked(this)} onInput={() => input(this)} placeholder="Your Username" required /><br /> 
                 <div class="error UnameErr hidden"> 
                         <p id="numberErr">Username cannot contain numbers!</p>
                         <p id="symbolErr">Username cannot contain symbols</p>
                     </div>
-                    <input type="text" id="nin" autocomplete="off" name="nin" onclick="clicked(this)" oninput="input(this)" placeholder="Enter Your NIN Number" required /><br /> 
-                    <div class="error ninErr hidden"> 
-                        <p id="letterErr">NIN cannot contain letters!</p>
-                        <p id="isCompleteErr">NIN cannot be more or less than 11 digits!</p>
-                        <p id="symbolNinErr">NIN cannot contain symbols</p>
-                    </div>
-                    <button type="submit" name="submit">REGISTER</button>
+                    {Children}
+                    <button type="submit" name="submit">{button}</button>
                 </form>
             </div>
         </main> 
