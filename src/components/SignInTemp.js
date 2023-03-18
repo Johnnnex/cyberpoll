@@ -31,8 +31,8 @@ const SignInTemp = ({button, title, children, smallText, reference, link}) => {
     <div>
         <main>
             <div class="main-content carousel-container">
-                <span class="span left" onclick="toggleCarousel()"><i class="fa-solid fa-arrow-left"></i></span>
-                <span class="span right" onclick="toggleCarousel()"><i class="fa-solid fa-arrow-right"></i></span>
+                <span class="span left" onclick={toggleCarousel}><i class="fa-solid fa-arrow-left"></i></span>
+                <span class="span right" onclick={toggleCarousel}><i class="fa-solid fa-arrow-right"></i></span>
                 <div class="carousel item-one">
                     <h2>"The vote is the most powerful instrument ever devised by man for breaking down injustice and destroying the terrible walls which imprison men because they are different from other men."</h2>
                     <p class="author">- Lyndon B. Johnson</p>
