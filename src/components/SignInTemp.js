@@ -1,6 +1,6 @@
 import React, { Children } from 'react';
 
-const SignInTemp = ({button, input, title, clicked}) => {
+const SignInTemp = ({button, input, title, clicked, Children}) => {
   return (
     <div>
         <main>
