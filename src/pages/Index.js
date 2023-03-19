@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Index = () => {
+  const navigate = useNavigate()
   const [fetchError, setFetchError] = useState(null);
   const [userData, setUserData] = useState(null);
   useEffect(() => {
@@ -50,11 +51,11 @@ const Index = () => {
       // eslint-disable-next-line eqeqeq
       if (user == userData[i].Username){
         alert("Cyberpoll: Welcome!")
-        return
+        navigate('/dashboard')
       } 
       else {
         alert("We don't recognize you please sign up!")
-        return
+        navigate('/signup')
       }
     }
   }
