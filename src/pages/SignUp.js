@@ -63,7 +63,6 @@ const SignUp = () => {
   const [nin, setNin] = useState('')
   const [dob, setDob] = useState('')
   const [user, setUsername] = useState('')
-  const [formError, setFormError] = useState(null);
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!nin || !dob || !user) {
@@ -89,18 +88,18 @@ const SignUp = () => {
     const { data, error } = await supabase
     .from('UserData')
     .insert([
-      { Username: user, ninNumber: nin, userDOB: dob},
+      { Username: user, ninNumber: nin, userDOB: dob}
     ])
   
 
-    if (error) {
-      setFormError("Couldn't sign you up, check your network connection!")
-      alert("error")
-      return
-    }
-    if (data) {
-      setFormError(null)
+  
+    if (!error) {
       alert("Cyberpoll: Congrats, Sign In to get started!")
+      navigate("/")
+    }
+    if (error) {
+      alert("Couldn't sign you up, check your network connection!")
+      return
     }
   }
 

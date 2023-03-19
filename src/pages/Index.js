@@ -48,15 +48,23 @@ const Index = () => {
     } 
     // let value;
     for (var i in userData) {
+      // let bool;
       // eslint-disable-next-line eqeqeq
       if (user == userData[i].Username){
-        alert("Cyberpoll: Welcome!")
-        navigate('/dashboard')
+        var bool = true;
+        // return
       } 
-      else {
-        alert("We don't recognize you please sign up!")
-        navigate('/signup')
-      }
+      
+    }
+    if (bool) {
+      localStorage.setItem("Username", user)
+      alert("Cyberpoll: Welcome!")
+      navigate("/dashboard")
+      return
+    }
+    else {
+      alert("We couldn't recognize you, Sign Up please!")
+      navigate("/signup")
     }
   }
 
