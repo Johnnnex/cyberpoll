@@ -26,8 +26,12 @@ const Index = () => {
     fetchUserData()
   }, [])
 
+  if (fetchError) {
+    alert(fetchError)
+    // return
+  }
+
   const [user, setUsername] = useState('')
-  const [formError, setFormError] = useState(null);
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!user) {
