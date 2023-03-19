@@ -2,8 +2,10 @@ import React from 'react'
 import SignInTemp from '../components/SignInTemp'
 import supabase from '../config/supabaseClient'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const SignUp = () => {
+  const navigate = useNavigate()
   const [fetchError, setFetchError] = useState(null);
   const [userData, setUserData] = useState(null);
   useEffect(() => {
@@ -87,10 +89,11 @@ const SignUp = () => {
     const { data, error } = await supabase
     .from("UserData")
     .insert([{nin, user, dob}])
+    .select
 
     if (error) {
       setFormError("Couldn't sign you up, check your network connection!")
-      alert(formError)
+      alert("error")
       return
     }
     if (data) {
