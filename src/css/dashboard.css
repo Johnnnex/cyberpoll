@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Caudex&family=Domine&family=Forum&family=Lato:wght@300&family=Poppins:wght@300&display=swap');
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+body {
+    background-color: #808080b7;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5rem .7rem 2rem;
+    border-bottom: 1px solid #000;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.user {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.user small {
+    font-size: 1rem;
+    margin-left: .7rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+}
+.fa-user {
+    border: 1px solid #000;
+    font-size: 2rem;
+    padding: 1rem;
+    border-radius: 50%;
+    background-color: #04480495;
+    cursor: pointer;
+    background-color: #008000;
+}
+.fa-angle-down {
+    margin-left: .4rem;
+}
+ul {
+    list-style: none;
+    position: absolute;
+    background-color: #fff;
+    line-height: 1.6rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: .8rem;
+    font-weight: 600;
+}
+li {
+    border-bottom: 1px solid #008000;
+}
+.dropDown label {
+    border: 1px solid #04480495;
+    padding: .4rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.dropDown:hover #dropDown {
+    opacity: 1;
+}
+#dropDown {
+    opacity: 0;
+    transition: .5s;
+}
+#nav-alternative {
+    display: none;
+}
+#dropDown img {
+    height: 1rem;
+}
+#dropDown li {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+aside {
+    position: fixed;
+    left: 0;
+    top: 14%;
+}
+.ul-nav {
+    height: 34rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-bottom: 10rem;
+    
+}
+.ul-nav li {
+    cursor: pointer;
+}
+.ul-nav i {
+    font-size: 1.3rem;
+    transition: .6s;
+}
+.ul-nav i:hover {
+    color: #008000;
+}
+main {
+    padding: 7rem 2rem 0 2rem;
+}
+.vote {
+    display: flex;
+    flex-wrap: wrap;
+    height: max-content;
+    gap: 1rem;
+    justify-content: space-around;
+}
+.card {
+    background-color: #fff;
+    padding-bottom: 1rem;
+    height: 27rem;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: -6px 18px 5px #80808080;
+}
+.card:hover .vote-btn{
+    transform: translateY(0px);
+}
+.content {
+    padding: 1rem 0 1rem 1rem;
+    border-top: 2px solid #008000;
+    text-align: left;
+}
+.content small {
+    font-family: 'Domine', serif;
+    font-weight: 900;
+}
+.content h3 {
+    font-family: 'Caudex', serif;
+    padding-top: .6rem;
+    font-weight: 900;
+}
+.content p {
+    font-family: 'Poppins', sans-serif;
+    padding-top: 1px;
+    font-weight: 500;
+}
+.candidateImg {
+    height: 15rem;
+    width: 20rem;
+    cursor: pointer;
+}
+.vote-btn {
+    background-color: #008000;
+    width: 50%;
+    border-radius: 7px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    padding: .5rem 1.5rem .5rem 1.5rem;
+    outline: 1px solid #000;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: .4s;
+    transform: translateY(9rem);
+}
+.vote-btn:hover {
+    outline-offset: 4px;
+}
+.vote-btn::before {
+    content: "";
+    position: absolute;
+    background-color: #00000050;
+    width: 2rem;
+    inset: 0 auto 0 0;
+    border-radius: 7px;
+    transform: translateX(-2rem);
+    transition: .5s;
+}
+.vote-btn:hover::before {
+    width: 100%;
+    inset: 0;
+    border-radius: 7px;
+    transform: translateX(0);
+}
+
+@media all and (max-width: 715px) {
+    header {
+        padding: 1rem .6rem .7rem .6rem;
+    }
+    #nav-alternative {
+        display: block;
+    }
+    #nav-alternative img {
+        height: 1rem;
+    }
+    #nav-alternative li {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    #dropDown {
+        display: none;
+    }
+
+}
