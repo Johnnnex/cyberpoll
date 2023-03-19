@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../css/index.css';
 
 const SignInTemp = ({button, title, children, smallText, reference, link, text, textInput, post}) => {
@@ -70,7 +71,7 @@ const SignInTemp = ({button, title, children, smallText, reference, link, text, 
                     {children}
                     <button type="submit" name="submit">{button}</button>
                 </form>
-                <small>{smallText} <a href={reference}>{link}</a></small>
+                <small>{smallText} <Link to={reference}>{link}</Link></small>
             </div>
         </main> 
     </div>

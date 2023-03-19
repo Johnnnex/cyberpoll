@@ -87,9 +87,11 @@ const SignUp = () => {
       
     }
     const { data, error } = await supabase
-    .from("UserData")
-    .insert([{nin, user, dob}])
-    .select
+    .from('UserData')
+    .insert([
+      { Username: user, ninNumber: nin, userDOB: dob},
+    ])
+  
 
     if (error) {
       setFormError("Couldn't sign you up, check your network connection!")
@@ -112,7 +114,7 @@ const SignUp = () => {
           title="Sign Up" 
           smallText="Already have an account?" 
           link="sign in" 
-          reference="/signin"
+          reference="/"
           textInput = {e => setUsername(e.target.value)}
           text = {user}
           post = {handleSubmit}>
