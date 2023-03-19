@@ -13,7 +13,7 @@ const SignUp = () => {
         .select()
 
         if (error) {
-          setFetchError("Couldn't Register, check your internet connection!")
+          setFetchError("Couldn't connect, check your internet connection!")
           console.log(error)
           setUserData(null)
         }
@@ -24,33 +24,11 @@ const SignUp = () => {
     }
     fetchUserData()
   }, [])
-  console.log(userData)
-  const [nin, setNin] = useState('')
-  const [dob, setDob] = useState('')
-  const [user, setUsername] = useState('')
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!nin || !dob || !user) {
-      alert("you didn't input any data")
-      // window.open("/signup")
-      return
-    }
-    // if 
-    let value;
-    for (var i in userData) {
-      // eslint-disable-next-line eqeqeq
-      if (user == userData[i].Username || nin == userData[i].ninNumber){
-          value = true;
-      } 
-      else {
-          value = false;
-      }
-      
+
+  if (fetchError) {
+    alert(fetchError)
+    // return
   }
-  }
-
-
-
   const clicked = (variable) => {
     let errDOM = `.${variable}Err`;
     document.querySelector(errDOM).classList.remove('hidden');
@@ -80,6 +58,49 @@ const SignUp = () => {
       }
     }
   }
+  const [nin, setNin] = useState('')
+  const [dob, setDob] = useState('')
+  const [user, setUsername] = useState('')
+  const [formError, setFormError] = useState(null);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!nin || !dob || !user) {
+      alert("you didn't input any data")
+      // window.open("/signup", "_self")
+      return
+    }
+    // eslint-disable-next-line no-useless-escape, eqeqeq
+    if (user.match(/[0-9]/) || user.match(/[@\#\$\%\^\&\*\(\)\+\=\_\~\`\\\}\{\]\[\:\;\"\'\<\>\.\,\/\?\!\-]/) || nin.match(/[A-Z]/) || nin.match(/[a-z]/) || nin.match(/[@\#\$\%\^\&\*\(\)\+\=\_\~\`\\\}\{\]\[\:\;\"\'\<\>\.\,\/\?\!\-]/) || nin.length != 11) {
+      alert("error!, couldn't submit form!")
+      // window.open("/signup", "_self")
+      return
+    } 
+    // let value;
+    for (var i in userData) {
+      // eslint-disable-next-line eqeqeq
+      if (user == userData[i].Username || nin == userData[i].ninNumber){
+        alert("Username or NIN exists, try another!")
+        return
+      } 
+      
+    }
+    const { data, error } = await supabase
+    .from("UserData")
+    .insert([{nin, user, dob}])
+
+    if (error) {
+      setFormError("Couldn't sign you up, check your network connection!")
+      alert(formError)
+      return
+    }
+    if (data) {
+      setFormError(null)
+      alert("Cyberpoll: Congrats, Sign In to get started!")
+    }
+  }
+
+
+  
 
   return (
     <div>
