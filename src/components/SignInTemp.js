@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/index.css';
 
-const SignInTemp = ({button, title, children, smallText, reference, link}) => {
+const SignInTemp = ({button, title, children, smallText, reference, link, text, textInput, post}) => {
     const toggleCarousel = () => {
         const getCarouselElement = document.querySelector('.item-one');
         const getHiddenElement = document.querySelector('.item-two');
@@ -53,9 +53,16 @@ const SignInTemp = ({button, title, children, smallText, reference, link}) => {
             </div>
             <div className="main-content form">
                 
-                <form action="" id="form">
+                <form onSubmit={post} action="" id="form">
                     <h1>{title}</h1>
-                    <input type="text" id="Uname" name="username" onClick={() => clicked("Uname")} onInput={() => input("Uname")} placeholder="Your Username" required /><br /> 
+                    <input type="text"
+                        id="Uname" name="username" 
+                        value={text} 
+                        onChange = {textInput}
+                        onClick={() => clicked("Uname")} 
+                        onInput={() => input("Uname")} 
+                        placeholder="Your Username" 
+                        required /><br /> 
                     <div className="error UnameErr hidden"> 
                             <p id="numberErr">Username cannot contain numbers!</p>
                             <p id="symbolErr">Username cannot contain symbols</p>
