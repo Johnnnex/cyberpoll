@@ -1,0 +1,58 @@
+[
+
+    {
+        "id": 1,
+        "candidateName": "ALMUSTAPHA HAMZA",
+        "candidateParty": " Action Alliance(AA)",
+        "candidateImg": "assets/images/Actionalliance.jpeg"
+    },
+
+
+    {
+        "id": 2,
+        "candidateName": "Dumebi Kachikwu",
+        "candidateParty": "African Democratic Congress (ADC)",
+        "candidateImg": "assets/images/adclogo.jpeg"
+    },
+    {
+        "id": 3,
+        "candidateName": "Bola Tinubu",
+        "candidateParty": "All Progressive Congress (APC)",
+        "candidateImg": "assets/images/APC.jpeg" 
+    },
+    
+    {
+        "id": 4,
+        "candidateName": "Professor Peter Umeadi ",
+        "candidateParty": "All Progressives Grand Alliance (APGA)",
+        "candidateImg": "assets/images/apga.png"
+    },
+    {
+        "id": 5,
+        "candidateName": " Peter Obi ",
+        "candidateParty": " Labour Party (LP)",
+        "candidateImg": "assets/images/labourparty.png" 
+    },
+    {
+        "id": 6,
+        "candidateName": " Rabiu Musa Kwankwaso",
+        "candidateParty": "New Nigeria Peoples Party (NNNP)",
+        "candidateImg": "assets/images/NNNP.jpeg" 
+    },
+
+    {
+        "id": 7,
+        "candidateName": "Alhaji Atiku Abubakar",
+        "candidateParty": "Peoples Democratic Party",
+        "candidateImg": "assets/images/pdp.jpeg"
+    },
+    {
+        "id": 8,
+        "candidateName": "Nwanyanwu Daniel",
+        "candidateParty": " Zenith Labour Party (ZLP)",
+        "candidateImg": "assets/images/ZLP.jpeg" 
+    }
+
+    
+
+]

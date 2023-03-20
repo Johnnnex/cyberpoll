@@ -59,7 +59,7 @@ const Index = () => {
     if (bool) {
       localStorage.setItem("Username", user)
       alert("Cyberpoll: Welcome!")
-      navigate("/dashboard")
+      navigate("/home")
       return
     }
     else {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import '../css/index.css';
 
@@ -11,7 +11,11 @@ const SignInTemp = ({button, title, children, smallText, reference, link, text, 
         getCarouselElement.classList.toggle('hidden');
         getHiddenElement.classList.toggle('hidden');
     }
-    setInterval (toggleCarousel, 5000);
+    useEffect(() => {
+        const interval = setInterval (toggleCarousel, 5000);
+        return () => clearInterval(interval);
+    }, []);
+    
     const clicked = (variable) => {
         let errDOM = `.${variable}Err`;
         document.querySelector(errDOM).classList.remove('hidden');
@@ -39,8 +43,7 @@ const SignInTemp = ({button, title, children, smallText, reference, link, text, 
     
   return (
     <div>
-        <body className='body'>
-            <main className='main'>
+         <main className='main'>
                 <div className="main-content carousel-container">
                     <span className="span left" onClick={toggleCarousel}><i className="fa-solid fa-arrow-left"></i></span>
                     <span className="span right" onClick={toggleCarousel}><i className="fa-solid fa-arrow-right"></i></span>
@@ -64,18 +67,17 @@ const SignInTemp = ({button, title, children, smallText, reference, link, text, 
                             onClick={() => clicked("Uname")} 
                             onInput={() => input("Uname")} 
                             placeholder="Your Username" 
-                            required /><br /> 
+                            required autoComplete='off'/><br /> 
                         <div className="error UnameErr hidden"> 
                                 <p id="numberErr">Username cannot contain numbers!</p>
                                 <p id="symbolErr">Username cannot contain symbols</p>
                         </div>
                         {children}
-                        <button type="submit" name="submit">{button}</button>
+                        <button type="submit" className='button' name="submit">{button}</button>
                     </form>
-                    <small>{smallText} <Link to={reference}>{link}</Link></small>
+                    <small>{smallText} <Link className="link" to={reference}>{link}</Link></small>
                 </div>
-            </main> 
-        </body>
+        </main>
     </div>
   )
 }
