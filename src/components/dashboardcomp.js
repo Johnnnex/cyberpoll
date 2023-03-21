@@ -1,22 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import '../css/dashboard.css'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const DashboardComp = ({children, activeHome, activeResults, activeVote}) => {
+    const navigate = useNavigate()
     const [user, setName] = useState(null)
     useEffect (() => {
         const getUserName = localStorage.getItem("Username")
+         // eslint-disable-next-line eqeqeq
+        if (getUserName == "" || getUserName == null) {
+            console.log(user)
+            alert("You're not signed in, log in to continue!")
+            navigate("/")
+            return
+        }
         const setUsername = () => setName(getUserName)
         setUsername()
-    }, [])
+    }, [navigate, user])
+   
   return (
     <div>
       <header>
-        <div class="user">
-            <i class="fa-sharp fa-solid fa-user"></i><small id="username">Welcome, {user}</small>
+        <div className="user">
+            <i className="fa-sharp fa-solid fa-user"></i><small id="username">Welcome, {user}</small>
         </div>
-        <div class="dropDown">
-            <label htmlFor="dropDown">Connect Your Wallet<i class="fa-solid fa-angle-down"></i></label>
+        <div className="dropDown">
+            <label htmlFor="dropDown">Connect Your Wallet<i className="fa-solid fa-angle-down"></i></label>
             <ul id="dropDown">
                 <li>Connect to Metamask&nbsp;<img src="assets/images/metamask.png"  alt="img-metamask" /></li>
                 <li>Wallet connect <img src="assets/images/WalletConnect-Logo.jpg" alt="img-walletconnect" /></li>
@@ -33,7 +43,7 @@ const DashboardComp = ({children, activeHome, activeResults, activeVote}) => {
     <span className='span-right'><i className="fa-solid fa-chevrons-left"></i></span>
     <aside>
         <nav>
-            <ul class="ul-nav">
+            <ul className="ul-nav">
                 <Link className="dashboard-link" to="/home">
                     <li style={activeHome}><i class="fa-solid fa-house"></i></li>
                 </Link>
