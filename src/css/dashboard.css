@@ -7,6 +7,10 @@
 body {
     background-color: #808080b7;
 }
+.modal-blur {
+    filter: blur(20px);
+    pointer-events: none;
+}
 header {
     display: flex;
     justify-content: space-between;
@@ -89,6 +93,10 @@ aside {
     left: 0;
     top: 14%;
     min-height: 100vh;
+    transition: 1s;
+}
+.aside-in {
+    transform: translateX(-10rem);
 }
 .ul-nav {
     height: 34rem;
@@ -110,10 +118,14 @@ aside {
 }
 .span-right {
     background-color: #fff;
-    color: red;
-    position: absolute;
-    top: 0;
+    color: #000;
+    position: fixed;
+    top: 30%;
     right: 0;
+    cursor: pointer;
+    padding: 1rem;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
 }
 .dashboard-main {
     padding: 7rem 2rem 0 2rem;
@@ -196,12 +208,105 @@ aside {
     transform: translateX(0);
 }
 
+.card-load {
+    pointer-events: none;
+    padding: 0 1rem 0 1rem;
+}
+.card-load img {
+    height: 15rem;
+    width: 20rem;
+    border-radius: 50%;
+}
+.content-load {
+    border-top: none !important;
+    animation: animate 1.2s linear infinite alternate;
+    margin-bottom: 1rem;
+    width: 80%;
+    height: 15px !important;
+    border-radius: 5px;
+}
+.content-load:nth-child(2) {
+    width: 100%;
+}
+.content-load:nth-child(3) {
+    width: 90%;
+}
+.content-load:nth-child(5) {
+    width: 60%;
+}
+.loader {
+    animation: animate 1s linear infinite alternate;
+}
+.modal-logout {
+    left: 25%;
+    position: fixed;
+    border: 1px solid;
+    width: 50%;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 3rem;
+    background-color: #fff;
+    transition: all ease-in 1s;
+}
+.modal-blur .modal-logout {
+    transform: scale(1);
+    filter: blur(0);
+}
+.modal-logout h1 {
+    font-family: 'Domine', serif;
+}
+.modal-logout p {
+    font-family: 'Poppins', sans-serif;
+}
+.btn-div {
+    display: flex;
+    width: 60%;
+    margin-inline: auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.btn {
+    cursor: pointer;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    font-family: 'Caudex', serif;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    width: 9rem;
+}
+.btn-danger {
+    background-color: #ff0000;
+}
+.btn-sucess {
+    background-color: #008000;
+}
+.no-display {
+    transform: scale(0);
+}
+@keyframes animate {
+    0% {
+        background-color: #80808064;
+    }
+    100% {
+        background-color: #fff;
+    }
+
+}
+
+
 @media all and (max-width: 715px) {
     header {
         padding: 1rem .6rem .7rem .6rem;
     }
     #nav-alternative {
         display: block;
+        opacity: 0;
+    }
+    .dropDown:hover #nav-alternative {
+        opacity: 1;
     }
     #nav-alternative img {
         height: 1rem;
