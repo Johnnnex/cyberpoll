@@ -4,6 +4,10 @@ import LoaderComp from '../components/loaderComp'
 import candidateData from '../Data files/candidateData.json'
 
 const DashboardVote = () => {
+  const vote = (data) => {
+    console.log(data)
+    // candId = data
+  }
   return (
     <div>
       <DashboardComp activeVote = { {color: "#008000"} }>
@@ -11,14 +15,14 @@ const DashboardVote = () => {
           {!candidateData && <LoaderComp />}
           {candidateData.map(data => {
             return(
-              <div className="card">
-                <img src= {data.candidateImg} alt= {`img-${data.candidateParty}`} class="candidateImg"/>
+              <div key ={data.id} className="card">
+                <img src= {data.candidateImg} alt= {`img-${data.candidateParty}`} className="candidateImg"/>
                 <div class="content">
-                    <small class="candidateID">ID: {data.id}</small>
-                    <h3 class="candidateName">{data.candidateName}</h3>
-                    <p class="candidateParty">{data.candidateParty}</p>
+                    <small className="candidateID">ID: {data.id}</small>
+                    <h3 className="candidateName">{data.candidateName}</h3>
+                    <p className="candidateParty">{data.candidateParty}</p>
                 </div>
-                <button class="vote-btn">Vote</button>
+                <button onClick={() => vote(data.id)} className="vote-btn">Vote</button>
               </div>
             )
           })}
