@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const SignUp = () => {
+  
   const navigate = useNavigate()
   const [fetchError, setFetchError] = useState(null);
   const [userData, setUserData] = useState(null);
@@ -76,7 +77,16 @@ const SignUp = () => {
       // window.open("/signup", "_self")
       return
     } 
-    // let value;
+    
+    const currentDate = new Date().getUTCFullYear()
+    const getUserDob = new Date(dob).getUTCFullYear()
+    const checkDate = Math.abs(currentDate - getUserDob)
+    if (checkDate < 18) {
+      alert("You're too young to vote!")
+      return;
+
+    }
+
     for (var i in userData) {
       // eslint-disable-next-line eqeqeq
       if (user == userData[i].Username || nin == userData[i].ninNumber){

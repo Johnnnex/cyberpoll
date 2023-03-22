@@ -27,6 +27,15 @@ const DashboardComp = ({children, activeHome, activeResults, activeVote}) => {
         const getModal = document.querySelector(".modal-logout")
         getModal.classList.remove("no-display")
     }
+    const goBack = () => {
+        const getModal = document.querySelector(".modal-logout")
+        getModal.classList.add("no-display")
+    }
+    const logout = () => {
+        localStorage.clear("name");
+        navigate("/")
+    }
+
    
   return (
     <div>
@@ -54,26 +63,26 @@ const DashboardComp = ({children, activeHome, activeResults, activeVote}) => {
                 <nav>
                     <ul className="ul-nav">
                         <Link className="dashboard-link" to="/home">
-                            <li style={activeHome}><i class="fa-solid fa-house"></i></li>
+                            <li style={activeHome}><i className="fa-solid fa-house"></i></li>
                         </Link>
                         <Link className="dashboard-link" to="/vote">
-                            <li style={activeVote}><i class="fa-solid fa-check-to-slot"></i></li>
+                            <li style={activeVote}><i className="fa-solid fa-check-to-slot"></i></li>
                         </Link>
                         <Link className="dashboard-link" to="/results">
-                            <li style={activeResults}><i class="fa-solid fa-chart-simple"></i></li>
+                            <li style={activeResults}><i className="fa-solid fa-chart-simple"></i></li>
                         </Link>
-                        <li onClick={noDisp}><i class="fa-solid fa-right-from-bracket"></i></li>
+                        <li onClick={noDisp}><i className="fa-solid fa-right-from-bracket"></i></li>
                     </ul>
                 </nav>
             </aside>
             <main className='dashboard-main'>
-            <span onClick={toggleMenu} className='span-right' title='toggle menu in or out'><i class="fa-solid fa-angles-left"></i></span>
+            <span onClick={toggleMenu} className='span-right' title='toggle menu in or out'><i className="fa-solid fa-angles-left"></i></span>
             <div className='modal-logout no-display'>
                 <h1>CyberPoll</h1>
                 <p>Are you sure you want to log out?</p>
                 <div className='btn-div'>
-                    <button className='btn btn-danger'><i class="fa-solid fa-door-open"></i>&nbsp;Yes, Logout</button>
-                    <button className='btn btn-sucess'><i class="fa-solid fa-backward"></i>&nbsp;No, I'll stay</button>
+                    <button className='btn btn-danger' onClick={logout}><i className="fa-solid fa-door-open"></i>&nbsp;Yes, Logout</button>
+                    <button className='btn btn-sucess' onClick={goBack}><i className="fa-solid fa-backward"></i>&nbsp;No, I'll stay</button>
                 </div>
             </div>
                 {children}

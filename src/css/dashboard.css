@@ -247,7 +247,7 @@ aside {
     border-radius: 5px;
     line-height: 3rem;
     background-color: #fff;
-    transition: all ease-in 1s;
+    transition: all ease-in .3s;
 }
 .modal-blur .modal-logout {
     transform: scale(1);
