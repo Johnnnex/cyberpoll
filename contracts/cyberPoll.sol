@@ -106,6 +106,9 @@ contract CyberPoll {
         // update candidate vote count
         candidates[_candidateId].voteCount++;
 
+        //update number of voters
+        totalVoters++;
+
         // trigger vote event
         emit votedEvent(_candidateId);
     }
