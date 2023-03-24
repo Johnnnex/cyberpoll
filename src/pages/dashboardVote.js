@@ -22,18 +22,17 @@ const DashboardVote = () => {
     try {
       const data = await vote([dataID]);
       console.info("contract call successs", data);
-      toast("Congrats! You have now casted your vote!");
-    } catch (err) {
-      toast("Oops! Transaction Failed!");
-      toast.error("Error Notification !", {
-        position: toast.POSITION.TOP_LEFT,
-      });
-      console.error("contract call failure", err);
+      toast.success("Congrats! You have now casted your vote!");
+    } catch (error) {
+      toast.error("Oops! Transaction Failed");
+      toast.error(error.message);
+      console.error("contract call failure", error);
     }
   };
 
   return (
     <div>
+      <ToastContainer />
       <DashboardComp activeVote={{ color: "#008000" }}>
         <section className="vote">
           {!candidateData && <LoaderComp />}
