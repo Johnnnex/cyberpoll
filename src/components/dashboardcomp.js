@@ -28,6 +28,14 @@ const DashboardComp = ({ children, activeHome, activeResults, activeVote }) => {
     const getModal = document.querySelector(".modal-logout");
     getModal.classList.remove("no-display");
   };
+  const stay = () => {
+    const getModal = document.querySelector(".modal-logout");
+    getModal.classList.add("no-display");
+  }
+  const logout = () => {
+    localStorage.removeItem("name")
+    navigate("/")
+  }
 
   return (
     <div>
@@ -105,10 +113,10 @@ const DashboardComp = ({ children, activeHome, activeResults, activeVote }) => {
             <h1>CyberPoll</h1>
             <p>Are you sure you want to log out?</p>
             <div className="btn-div">
-              <button onClick = {toggleMenu} className="btn btn-danger">
+              <button onClick = {logout} className="btn btn-danger">
                 <i class="fa-solid fa-door-open"></i>&nbsp;Yes, Logout
               </button>
-              <button onClick = {noDisp} className="btn btn-sucess">
+              <button onClick = {stay} className="btn btn-sucess">
                 <i class="fa-solid fa-backward"></i>&nbsp;No, I'll stay
               </button>
             </div>
