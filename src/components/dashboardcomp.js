@@ -33,7 +33,7 @@ const DashboardComp = ({ children, activeHome, activeResults, activeVote }) => {
     getModal.classList.add("no-display");
   }
   const logout = () => {
-    localStorage.removeItem("name")
+    localStorage.removeItem("Username")
     navigate("/")
   }
 
