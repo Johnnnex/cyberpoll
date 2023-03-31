@@ -1,5 +1,6 @@
 import React from 'react'
 import DashboardComp from '../components/dashboardcomp'
+import LoaderComp from '../components/loaderComp'
 
 const Home = () => {
   return (
