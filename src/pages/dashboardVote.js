@@ -7,10 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
 const DashboardVote = () => {
-  // const voteTest = (data) => {
-  //   console.log(data);
-  //   // candId = data
-  // };
+
 
   //Web 3 Integration
   const { contract } = useContract(

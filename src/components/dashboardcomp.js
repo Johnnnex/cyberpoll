@@ -105,10 +105,10 @@ const DashboardComp = ({ children, activeHome, activeResults, activeVote }) => {
             <h1>CyberPoll</h1>
             <p>Are you sure you want to log out?</p>
             <div className="btn-div">
-              <button className="btn btn-danger">
+              <button onClick = {toggleMenu} className="btn btn-danger">
                 <i class="fa-solid fa-door-open"></i>&nbsp;Yes, Logout
               </button>
-              <button className="btn btn-sucess">
+              <button onClick = {noDisp} className="btn btn-sucess">
                 <i class="fa-solid fa-backward"></i>&nbsp;No, I'll stay
               </button>
             </div>
